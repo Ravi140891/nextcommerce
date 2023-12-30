@@ -1,4 +1,5 @@
 import AddToCart from "@/app/components/AddToCart";
+import CheckoutNow from "@/app/components/CheckoutNow";
 import ImageGallery from "@/app/components/ImageGallery";
 import { FullProducts } from "@/app/interface";
 import { client } from "@/app/lib/sanity";
@@ -49,10 +50,10 @@ const ProductPage = async ({ params }: { params: { slug: string } }) => {
             <div className="mb-4">
               <div className="flex items-end gap-2">
                 <span className="text-xl font-bold text-gray-800 md:text-2xl">
-                  &#8377;{data.price}
+                  ${data.price}
                 </span>
                 <span className="mb-0.5 text-red-500 line-through">
-                  &#8377;{data.price + 500}
+                  ${data.price + 500}
                 </span>
               </div>
               <span className="text-sm text-gray-500">
@@ -73,7 +74,15 @@ const ProductPage = async ({ params }: { params: { slug: string } }) => {
                 key={data._id}
                 price_id={data.price_id}
               />
-              <Button variant={"secondary"}>Checkout now</Button>
+              <CheckoutNow
+                currency="INR"
+                description={data.description}
+                image={data.images[0]}
+                name={data.name}
+                price={data.price}
+                key={data._id}
+                price_id={data.price_id}
+              />
             </div>
             <p className="mt-12 text-base text-gray-500 tracking-wide">
               {data.description}

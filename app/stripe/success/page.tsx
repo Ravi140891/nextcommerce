@@ -1,8 +1,15 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { CheckCheck } from "lucide-react";
 import Link from "next/link";
+import { useEffect } from "react";
+import { useShoppingCart } from "use-shopping-cart";
 
 const SuccessPage = () => {
+  const { clearCart } = useShoppingCart();
+  useEffect(() => {
+    clearCart();
+  }, []);
   return (
     <div className="h-screen">
       <div className="mt-32 md:max-w-[50vw] mx-auto">

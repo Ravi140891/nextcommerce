@@ -27,12 +27,6 @@ const Newest = async () => {
           <h2 className="text-2xl font-bold tracking-tight text-gray-900">
             Our Newset Products
           </h2>
-          <Link href="/all" className="text-primary flex items-center gap-x-1">
-            See All{" "}
-            <span>
-              <ArrowRight />
-            </span>
-          </Link>
         </div>
         <div className="mt-6 grid grid-cols gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {data.map((product) => (
@@ -58,7 +52,7 @@ const Newest = async () => {
                   </p>
                 </div>
                 <p className="text-sm font-medium text-gray-900">
-                  &#8377; {product.price}
+                  $ {product.price}
                 </p>
               </div>
             </div>
