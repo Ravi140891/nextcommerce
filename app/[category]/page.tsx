@@ -15,7 +15,7 @@ async function getData(category: string) {
   const data = await client.fetch(query);
   return data;
 }
-
+export const dynamic = "force-dynamic";
 const CategoryPage = async ({ params }: { params: { category: string } }) => {
   const data: ProductTypes[] = await getData(params.category);
   return (
